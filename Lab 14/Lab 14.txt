@@ -1,0 +1,62 @@
+package com.bg.lambdapack;
+
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
+
+public class LamdaDemo {
+
+	
+	public static void main(String[] args) {
+		
+		LamdaClass cls = new LamdaClass();
+// -----------------------------------------------------------------------------------------------
+			String str = "Yo!";
+			Consumer<String> con =(s)-> {
+			System.out.println(str);
+			};
+			con.accept(str);
+
+// ----------------------------------------------------------------------------------------------
+			
+			BiFunction<Double, Double, Double> power = (a,b) -> {
+				 return Math.pow(a,b);
+				
+			};
+			System.out.println(power.apply(2.0, 3.0));
+			
+			
+// ----------------------------------------------------------------------------------------------
+			Function<String, String> fn = (s) -> {
+			return	s.replace(""," ");
+				
+			};
+			System.out.println(fn.apply("Hello"));
+			
+			
+// ----------------------------------------------------------------------------------------------
+			BiFunction<String,String, Boolean> usr = (a,b)-> {
+				if(a=="Dinesh" &&b=="12311") {
+					return true;
+				}
+				return false;
+			};
+			System.out.println(usr.apply("Yash", "12901"));
+			
+// ----------------------------------------------------------------------------------------------
+			Supplier<String> data = () ->{
+			cls.setName("Yash");
+			return cls.getName();	
+			};
+			System.out.println(data.get());
+			
+// ----------------------------------------------------------------------------------------------
+			
+			
+	
+	}
+		
+	}
+
+
